@@ -1,15 +1,18 @@
 package dev.otthon.cep.dtos;
 
 import dev.otthon.cep.entities.Address;
+import dev.otthon.cep.entities.Customer;
+import dev.otthon.cep.enums.CustomerType;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDate;
 import java.util.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class CustomerDTO {
 
     private UUID id;
@@ -26,11 +29,11 @@ public class CustomerDTO {
 
     @NotNull(message = "{field.required}")
     @Past(message = "{field.date.birthdate}")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @NotNull(message = "{field.customer-type.required}")
-    @Min(value = 1, message = "{field.customer-type.invalid}")
-    @Max(value = 2, message = "{field.customer-type.invalid}")
+    @Min(value = 0, message = "{field.customer-type.invalid}")
+    @Max(value = 1, message = "{field.customer-type.invalid}")
     private Integer customerType;
 
     @NotNull(message = "{field.required}")
@@ -41,5 +44,19 @@ public class CustomerDTO {
 
     @NotBlank(message = "{field.required}")
     private List<Address> addresses;
+
+    public CustomerDTO(Customer entity) {
+        BeanUtils.copyProperties(entity, this);
+    }
+
+    public CustomerType getCustomerType() {
+        return CustomerType.valueOf(customerType);
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        if (customerType != null) {
+            this.customerType = customerType.getCode();
+        }
+    }
 
 }

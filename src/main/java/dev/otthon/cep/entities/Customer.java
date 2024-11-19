@@ -31,7 +31,7 @@ public class Customer {
     private String email;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Column(nullable = false)
     private Integer customerType;
@@ -44,19 +44,21 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
-    public Customer(String name, String email, LocalDate birthDate, CustomerType customerType) {
+    public Customer(String name, String email, LocalDate birthdate, CustomerType customerType) {
         this.name = name;
         this.email = email;
-        this.birthDate = birthDate;
-        this.customerType = customerType.getCode();
+        this.birthdate = birthdate;
+        setCustomerType(customerType);
     }
 
     public CustomerType getCustomerType() {
-        return CustomerType.codeToEnum(customerType);
+        return CustomerType.valueOf(customerType);
     }
 
     public void setCustomerType(CustomerType customerType) {
-        this.customerType = customerType.getCode();
+        if (customerType != null) {
+            this.customerType = customerType.getCode();
+        }
     }
 
 }

@@ -5,25 +5,25 @@ import lombok.Getter;
 @Getter
 public enum CustomerType {
 
-    INDIVIDUAL_CUSTOMER(1, "Pesoa Física"),
-    BUSINESS_CUSTOMER(2, "Pessoa Jurídica");
+    PF(0, "Pessoa Física", "Individual Costumer"),
+    PJ(1, "Pessoa Jurídica", "Business Costumer");
 
-    private int code;
-    private String description;
+    private final int code;
+    private final String tipo;
+    private final String type;
 
-    private CustomerType(int code, String description) {
-        this.description = description;
+    private CustomerType(int code, String tipo, String type) {
+        this.code = code;
+        this.tipo = tipo;
+        this.type = type;
     }
 
-    public static CustomerType codeToEnum(Integer code) {
-        if (code == null) {
-            return null;
-        }
+    public static CustomerType valueOf(int code) {
         for (CustomerType value : CustomerType.values()) {
-            if (code.equals(value.getCode())) {
+            if (value.getCode() == code) {
                 return value;
             }
         }
-        throw new IllegalArgumentException("Código de tipo de cliente inválido: " + code);
+        throw new IllegalArgumentException("Invalid CustomerType code");
     }
 }
