@@ -15,7 +15,7 @@ import java.util.*;
 @NoArgsConstructor
 public class CustomerDTO {
 
-    private UUID id;
+    private Long id;
 
     @NotBlank(message = "{field.required}")
     @Size(min = 2, max = 100, message = "{field.size.min2max100}")
