@@ -42,7 +42,7 @@ public class CustomerDTO {
     @Size(min = 10, max = 11, message = "{field.numbers.min10max11}")
     private Set<String> phoneNumber;
 
-    @NotBlank(message = "{field.required}")
+    @NotEmpty(message = "{field.required}")
     private List<Address> addresses;
 
     public CustomerDTO(Customer entity) {
