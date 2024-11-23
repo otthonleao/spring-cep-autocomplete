@@ -21,18 +21,19 @@ public class Address {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "address_line_1", nullable = false)
     private String addressLine1; // Logradouro
 
-    @Column(nullable = false)
+    @Column(name = "street_number", nullable = false)
     private String streetNumber;
 
+    @Column(name = "address_line_2")
     private String addressLine2; // Complemento
 
     @Column(nullable = false)
     private String neighborhood;
 
-    @Column(nullable = false)
+    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
     @Column(nullable = false)
