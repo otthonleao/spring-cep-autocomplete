@@ -1,0 +1,74 @@
+-- -- Inserindo os clientes (Jogadores e Times)
+-- INSERT INTO TB_CUSTOMER (id, name, email, birthdate, customer_type)
+-- VALUES
+-- -- Jogadores Originais (Pessoa Física)
+-- (1, 'Cristiano Ronaldo', 'cristiano@email.com', '1985-02-05', 0),
+-- (2, 'Ronaldo Fenômeno', 'ronaldo@email.com', '1976-09-22', 0),
+-- (3, 'Neto', 'neto@email.com', '1966-07-09', 0),
+-- (4, 'Vampeta', 'vampeta@email.com', '1974-03-13', 0),
+-- (5, 'Cássio', 'cassio@email.com', '1987-06-06', 0),
+-- (6, 'Sheik', 'sheik@email.com', '1978-09-06', 0),
+-- (7, 'Ralf', 'ralf@email.com', '1984-04-08', 0),
+-- (8, 'Paulinho', 'paulinho@email.com', '1988-07-25', 0),
+-- (9, 'Guerrero', 'guerrero@email.com', '1984-01-01', 0),
+-- (10, 'Romarinho', 'romarinho@email.com', '1993-01-05', 0),
+-- (11, 'Danilo', 'danilo@email.com', '1979-06-11', 0),
+-- (12, 'Alessandro', 'alessandro@email.com', '1979-01-10', 0),
+-- (13, 'Fábio Santos', 'fabio.santos@email.com', '1985-09-16', 0),
+-- (14, 'Jorge Henrique', 'jorge.henrique@email.com', '1982-04-23', 0),
+-- (15, 'Chicão', 'chicao@email.com', '1981-06-03', 0),
+--
+-- -- Times (Pessoa Jurídica)
+-- (16, 'São Raimundo EC', 'saoraimundo@email.com', NULL, 1),
+-- (17, 'Corinthians', 'corinthians@email.com', NULL, 1),
+-- (18, 'Porto', 'porto@email.com', NULL, 1),
+-- (19, 'Toronto FC', 'toronto@email.com', NULL, 1),
+-- (20, 'Real Madrid', 'realmadrid@email.com', NULL, 1);
+--
+-- -- Endereços para os jogadores (Pessoa Física)
+-- INSERT INTO TB_ADDRESS (id, address_line_1, street_number, address_line_2, neighborhood, postal_code, city, state, customer_id)
+-- VALUES
+--     (1, 'Avenida das Palmeiras', '555', 'Bloco A', 'Centro', '69005-001', 'Manaus', 'AM', 1),
+--     (2, 'Rua dos Campeões', '123', 'Casa 10', 'Mooca', '03154-050', 'São Paulo', 'SP', 2),
+--     (3, 'Rua Dr. Sócrates', '78', 'Apto 201', 'Jardim Paulista', '88010-020', 'Florianópolis', 'SC', 3),
+--     (4, 'Avenida das Nações', '123', 'Perto da estação', 'Boa Vista', '49010-100', 'Aracaju', 'SE', 4),
+--     (5, 'Rua dos Esportes', '1', 'Cobertura', 'Centro', '80030-030', 'Curitiba', 'PR', 5),
+--     (6, 'Rua das Flores', '1200', 'Apto 301', 'Centro', '58040-000', 'João Pessoa', 'PB', 6),
+--     (7, 'Rua Almirante', '456', 'Casa 202', 'Centro', '70040-010', 'Brasília', 'DF', 7),
+--     (8, 'Rua Nova', '999', 'Loja 3', 'Centro', '64001-400', 'Teresina', 'PI', 8),
+--     (9, 'Rua dos Atletas', '220', 'Casa 5', 'Centro', '50010-100', 'Recife', 'PE', 9),
+--     (10, 'Rua dos Campeões', '750', 'Bloco 6', 'Centro', '78010-500', 'Cuiabá', 'MT', 10),
+--     (11, 'Rua das Palmeiras', '15', 'Casa A', 'Centro', '69005-101', 'Manaus', 'AM', 11),
+--     (12, 'Avenida do Futebol', '10', 'Apto 22', 'Tatuapé', '03122-000', 'São Paulo', 'SP', 12),
+--     (13, 'Rua do Estádio', '5', 'Bloco B', 'Centro', '88020-200', 'Florianópolis', 'SC', 13),
+--     (14, 'Avenida Sócrates', '1234', 'Sala 3', 'Centro', '74015-060', 'Goiânia', 'GO', 14),
+--     (15, 'Rua das Estrelas', '8', 'Cobertura', 'Centro', '60300-100', 'Fortaleza', 'CE', 15),
+--     (16, 'Avenida Norte', '100', 'Sede Principal', 'Centro', '69005-102', 'Manaus', 'AM', 16),
+--     (17, 'Rua São Jorge', '2000', 'Parque São Jorge', 'Tatuapé', '03111-000', 'São Paulo', 'SP', 17),
+--     (18, 'Rua do Dragão', '300', 'Bloco Azul', 'Centro', '40500-000', 'Porto', 'PT', 18),
+--     (19, 'Maple Street', '400', 'Headquarters', 'Downtown', 'M5V 2T6', 'Toronto', 'ON', 19),
+--     (20, 'Paseo de la Castellana', '150', 'Estádio Santiago Bernabéu', 'Centro', '28036', 'Madrid', 'ES', 20);
+--
+-- -- Telefones para os jogadores
+-- INSERT INTO phone_numbers (customer_id, phone_number)
+-- VALUES
+--     (1, '92981062708'),
+--     (2, '92981062709'),
+--     (3, '92981062710'),
+--     (4, '92981062711'),
+--     (5, '92981062712'),
+--     (6, '92981062713'),
+--     (7, '92981062714'),
+--     (8, '92981062715'),
+--     (9, '92981062716'),
+--     (10, '92981062717'),
+--     (11, '92981062718'),
+--     (12, '92981062719'),
+--     (13, '92981062720'),
+--     (14, '92981062721'),
+--     (15, '92981062722'),
+--     (16, '92981062723'),
+--     (17, '92981062724'),
+--     (18, '92981062725'),
+--     (19, '92981062726'),
+--     (20, '92981062727');
