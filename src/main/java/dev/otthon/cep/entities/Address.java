@@ -1,5 +1,6 @@
 package dev.otthon.cep.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.otthon.cep.enums.EstadosBrasileiros;
 import jakarta.persistence.*;
 import lombok.*;
@@ -38,10 +39,11 @@ public class Address {
     private String city;
 
     @Column(nullable = false)
-    private EstadosBrasileiros states;
+    private EstadosBrasileiros state;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id") // Define a chave estrangeira na tabela de endereços
+    @JsonIgnore
+    @JoinColumn(name = "customer_id", nullable = false) // Define a chave estrangeira na tabela de endereços
     private Customer customer;
 
 }
