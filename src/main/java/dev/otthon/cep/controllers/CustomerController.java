@@ -1,6 +1,7 @@
 package dev.otthon.cep.controllers;
 
 import dev.otthon.cep.dtos.CustomerDTO;
+import dev.otthon.cep.services.CepService;
 import dev.otthon.cep.services.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,13 @@ import java.net.URI;
 public class CustomerController {
 
     private final CustomerService customerService;
+    private final CepService cepService;
 
     @PostMapping("/customer")
     public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
+
+        System.out.println(cepService.getAdressByPostalCode(customerDTO.getAddresses().get(0).getPostalCode()));
+
         customerDTO = customerService.insertCustomer(customerDTO);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
