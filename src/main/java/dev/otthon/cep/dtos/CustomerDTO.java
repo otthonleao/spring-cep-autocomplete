@@ -37,10 +37,7 @@ public class CustomerDTO {
     private Integer customerType;
 
     @NotNull(message = "{field.required}")
-    @Positive(message = "{field.numbers.positive}")
-    @Pattern(regexp = "\\d+", message = "{field.numbers.only}")
-    @Size(min = 10, max = 11, message = "{field.numbers.min10max11}")
-    private Set<String> phoneNumber;
+    private Set<@Pattern(regexp = "^[1-9][0-9]{9,10}$", message = "Invalid phone number. It must contain 10 or 11 digits.") String> phoneNumber;
 
     @NotEmpty(message = "{field.required}")
     private List<Address> addresses;
