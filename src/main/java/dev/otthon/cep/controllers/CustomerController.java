@@ -22,7 +22,7 @@ public class CustomerController {
     @PostMapping("/customer")
     public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
 
-        System.out.println(cepService.getAdressByPostalCode(customerDTO.getAddresses().get(0).getPostalCode()));
+        System.out.println(cepService.getAdressByCep(customerDTO.getAddresses().get(0).getPostalCode()));
 
         customerDTO = customerService.insertCustomer(customerDTO);
         URI uri = ServletUriComponentsBuilder
